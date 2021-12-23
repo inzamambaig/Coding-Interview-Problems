@@ -8,26 +8,28 @@ There is a component implementation that requires two things:
 ```Javascript
 import React, { useState, useEffect } from 'react';
 
-// imitation of a request to the server. just get the number asynchronously
 const fetchRandomNumber = () => Promise.resolve(Math.random());
 
 const NumberAndScroll = () => {
   const [number, setNumber] = useState();
-  const [scroll, setScroll] = useState();
+  // set initial value
+  const [scroll, setScroll] = useState(window.scrollY); 
+  
+  useEffect(() => {
+    fetchRandomNumber().then(setNumber);
 
-  useEffect(async () => {
-    setNumber(await fetchRandomNumber());
-
-    window.addEventListener('scroll', () => setScroll(window.scrollY));
-
-    return () => window.removeEventListener('scroll', () => setScroll(window.scrollY));
-  });
-
+    const handleScroll = () => setScroll(window.scrollY);
+    
+    window.addEventListener('scroll', handleScroll);
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
   return (
     <div>
       <div> Number: { number } </div>
       <div> Scroll: { scroll } </div>
-    </div>
+    </div>	
   )
 }
 ```
