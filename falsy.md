@@ -8,7 +8,6 @@
 | null      |
 | undefined |
 | NaN       |
-| []        |
 
 ### Comparing 0, "", []
 
