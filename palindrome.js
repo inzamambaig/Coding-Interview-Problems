@@ -18,7 +18,7 @@ function palindrome(str) {
   const reversedStr = str.split("").reverse().join("");
   return reversedStr === str;
 }
-console.log(palindrome("abba"));
+// console.log(palindrome("abba"));
 
 /* 
 Solution 2.1
@@ -33,7 +33,7 @@ function palindrome(str) {
   }
 
   return true;
-// }
+}
 
 // console.log(palindrome("abba"));
 
@@ -64,4 +64,4 @@ function palindrome(str) {
   return str.split("").every((char, idx) => char === str[str.length - 1 - idx]);
 }
 
-console.log(palindrome("abba"));
+// console.log(palindrome("abba"));
