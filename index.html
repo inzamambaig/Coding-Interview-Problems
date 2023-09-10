@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="button-container">
+
+    </div>
+    <script>
+        const btnParent = document.querySelector('#button-container');
+
+        function createBtn(n) {
+            for (let i = 1; i <= n; i++) {
+                const btn = document.createElement('button');
+                btn.innerText = `Button ${i}`;
+                btn.setAttribute('id', i);
+                btn.addEventListener('click', function () { alert(this.id) });
+                btnParent.appendChild(btn);
+            }
+        }
+
+        createBtn(20);
+// btn id 1 - 20
+// btn click event - alert (index)
+    </script>
+</body>
+
+</html>

@@ -59,3 +59,27 @@ function anagrams(stringA, stringB) {
 function removeSpecialChars(str) {
   return str.replace(/[^\w]/g, "").toLowerCase().split("").sort().join("");
 }
+
+
+/*
+  Solution 3
+*/
+
+/**
+ * Write a function to determine if one String is 
+ * a case-insensitive anagram of another String
+ */
+
+
+console.log(isAnagram('hello', 'jello'));
+console.log(isAnagram('hello', 'loelh'));
+
+
+// Solution
+const isAnagram = function (str1, str2) {
+  const string1 = str1.split("").sort().join("").toLowerCase();
+  const string2 = str2.split("").sort().join("").toLowerCase();
+
+  return string1 === string2;
+
+}
